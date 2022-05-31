@@ -1,7 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.animation_app">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 <!--    In case we need to access BLUETOOTH SETTINGS -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -37,5 +42,19 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- App Receiver -->
+        <receiver android:name="rekab.app.background_locator.BootBroadcastReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="rekab.app.background_locator.IsolateHolderService"
+            android:permission="android.permission.FOREGROUND_SERVICE"
+            android:exported="true"
+            android:foregroundServiceType = "location"
+            />
+        <!-- /App Receiver -->
     </application>
 </manifest>

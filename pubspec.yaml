@@ -34,11 +34,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+#  flutter_background_geolocation: ^4.6.3
   background_location: ^0.8.1
+  background_locator: ^1.6.12
   device_info_plus: ^3.2.3 #Used to access Device Info and API level
   location: ^4.4.0 #Used to access user location in Background as well.
   app_settings: ^4.1.6 # Used to redirect user to enable Location manually for Android 11
   get: ^4.6.5 #used for State Management, Services & DI
+  workmanager: ^0.4.1 #Used to run task in Background
 
 dev_dependencies:
   flutter_test:
